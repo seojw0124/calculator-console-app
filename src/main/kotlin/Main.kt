@@ -29,9 +29,13 @@ fun main() {
                     println("숫자를 입력해주세요.")
                     num2 = readDouble()
                 }
-                result = calculator.calculate(operatorCode, num1, num2)
-                isFirst = false
-                println("$num1 ${operatorCodeToString(operatorCode)} $num2 = $result")
+                try {
+                    result = calculator.calculate(operatorCode, num1, num2)
+                    isFirst = false
+                    println("$num1 ${operatorCodeToString(operatorCode)} $num2 = $result")
+                } catch (e: ArithmeticException) {
+                    println("0으로 나눌 수 없습니다.")
+                }
             }
             -1 -> break
             else -> println("잘못된 연산자입니다.")
@@ -58,20 +62,24 @@ fun operatorCodeToString(operatorCode: Int): String { // 연산자 코드를 연
 }
 
 fun showOperators(isFirst: Boolean, result: Double) { // 연산자를 출력하는 함수
-    if (isFirst){
-        println("""
+    if (isFirst) {
+        println(
+            """
         ===============계산기===============
         어떤 연산을 하시겠습니까?(종료하려면 -1 입력)
         1. +    2. -    3. *    4. /
         ===================================
-    """.trimIndent())
+    """.trimIndent()
+        )
     } else {
-        println("""
+        println(
+            """
         ===============계산기===============
         어떤 연산을 하시겠습니까?(종료하려면 -1 입력)
         1. +    2. -    3. *    4. /
         이전 결과: $result
         ===================================
-    """.trimIndent())
+    """.trimIndent()
+        )
     }
 }

@@ -17,7 +17,6 @@ class MultiplyOperation : AbstractOperation() { // Operation 추상 클래스를
 class DivideOperation : AbstractOperation() { // Operation 추상 클래스를 상속받은 DivideOperation(나누기) 클래스
     override fun calculate(num1: Double, num2: Double): Double {
         if (num2 == 0.0) {
-            println("0으로 나눌 수 없습니다.")
             throw ArithmeticException() // 0으로 나눌 때 예외 발생
         }
         return num1 / num2
