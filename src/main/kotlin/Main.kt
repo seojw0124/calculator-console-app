@@ -8,8 +8,9 @@ fun main() {
         if (isFirst) {
             println("첫번째 숫자 입력(종료하려면 -1 입력)")
             num1 = readDouble()
-            if (num1 == -1.0) break
-            else if (num1.isNaN()) {
+            if (num1 == -1.0) {
+                break
+            } else if (num1.isNaN()) {
                 println("숫자를 입력해주세요.")
                 continue
             }
